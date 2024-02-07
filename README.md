@@ -29,5 +29,14 @@
 ## Хранилище артефактов
 - s3 `s3://object-storage-3/mlflow/`
 
+## HW6
+
+## Отображение логирования эксперимента и метрики в MLflow
+![image](https://github.com/D-linguist/otus-mlops-learning/assets/63328900/61afb63d-5209-418b-b2bf-2d70ebfceaa2)
+
+## Результаты выполнения DAG
+![image](https://github.com/D-linguist/otus-mlops-learning/assets/63328900/84b4e30a-6dd0-4102-a65d-dfc5f6071737)
+
+
 
 
