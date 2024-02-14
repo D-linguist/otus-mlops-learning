@@ -5,9 +5,11 @@ on:
   push:
     paths:
       - hw8/**
+      - .github/workflows/**
   pull_request:
     paths:
       - hw8/**
+      - .github/workflows/**
 
 jobs:
   build:
