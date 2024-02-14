@@ -1,0 +1,20 @@
+cython
+setuptools
+mlflow==2.10.0
+numpy==1.19.2
+pandas<2
+py4j==0.10.9.2
+pyspark==3.0.3
+scipy==1.9.3
+fastapi
+uvicorn[standard]
+# gunicorn
+requests
+pytest
+# pre-commit
+scikit-learn
+pydantic
+# mypy
+# starlette-exporter
+boto3
+httpx

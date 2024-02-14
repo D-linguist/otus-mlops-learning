@@ -1,0 +1,25 @@
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8.10
+  - pip
+  - mlflow==2.10.0
+  - numpy==1.19.2
+  - pandas<2
+  - py4j==0.10.9
+  - pyspark==3.0.3
+  - scipy
+  - fastapi
+  - uvicorn[standard]
+  - gunicorn
+  - requests
+  - pytest
+  - pre-commit
+  - scikit-learn
+  - numpy
+  - pydantic
+  - mypy
+  - starlette-exporter
+  - boto3
+  - httpx
+name: mlops_fraud
