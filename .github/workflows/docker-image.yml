@@ -46,6 +46,7 @@ jobs:
 
       - name: Run tests
         run: |
+          PATH=~/miniconda3/bin:$PATH &&
           docker run --rm -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e MLFLOW_S3_ENDPOINT_URL -e MLFLOW_TRACKING_URI -e AWS_DEFAULT_REGION ${{ env.TEST_TAG }} /bin/bash -c "conda run --no-capture-output -n mlops_fraud pytest -v"
 
       - name: Build and push
