@@ -56,3 +56,14 @@
 ## Вывод тестового потребителя из топика со сгенерированными данными
 
 ![Alt text](image-1.png)
+
+## HW8
+
+## github actions
+
+![Alt text](image-2.png)
+
+## Dockerhub image
+
+https://hub.docker.com/r/dlinguist/ml-app
+![Alt text](image-3.png)
