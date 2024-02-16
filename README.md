@@ -67,3 +67,7 @@
 
 https://hub.docker.com/r/dlinguist/ml-app
 ![Alt text](image-3.png)
+
+## API tests
+
+![Alt text](image-4.png) ![Alt text](image-5.png)
