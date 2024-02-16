@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ml-api-deployment
+  name: ml-api
   labels:
     app: ml-api
 spec:
@@ -38,11 +38,10 @@ spec:
                 secretKeyRef:
                   name: s3-env
                   key: MLFLOW_TRACKING_URI
-            - name: AWS_DEFAULT_REGION
+            - name: AWS_REGION
               valueFrom:
                 secretKeyRef:
                   name: s3-env
-                  key: AWS_DEFAULT_REGION
-
+                  key: AWS_REGION
           ports:
             - containerPort: 8000

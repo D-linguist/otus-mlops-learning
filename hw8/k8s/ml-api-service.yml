@@ -11,3 +11,4 @@ spec:
     - name: ml-api
       protocol: TCP
       port: 8000
+  type: LoadBalancer
