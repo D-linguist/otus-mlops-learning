@@ -5,6 +5,8 @@ import pandas as pd
 
 from fastapi import FastAPI
 from fastapi.encoders import jsonable_encoder
+from starlette_exporter import PrometheusMiddleware, handle_metrics
+from prometheus_client import Counter
 
 
 from pydantic import BaseModel
@@ -32,6 +34,10 @@ class Transaction(BaseModel):
 
 
 app = FastAPI()
+app.add_middleware(PrometheusMiddleware)
+app.add_route("/metrics", handle_metrics)
+
+COUNTER = Counter("fraud", "Fraud predicted")
 
 
 class Model:
@@ -43,13 +49,12 @@ def load_model():
     Model.pipeline = mlflow.pyfunc.load_model(model_uri=f"models:/fraud_classifier/2")
 
 
-
-
-
 @app.post("/predict/")
 async def predict(transaction: Transaction):
     df = pd.DataFrame(jsonable_encoder(transaction), index=[0])
     res = Model.pipeline.predict(df)
+    if int(res[0]) == 1:
+        COUNTER.inc()
     print("Prediction:", res)
  
     return {"prediction": res}
