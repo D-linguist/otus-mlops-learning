@@ -3,7 +3,7 @@ kind: ServiceMonitor
 metadata:
   namespace: default
   labels:
-    release: kube-prometheus-stack-1708291907
+    release: kube-pro-stack
   name: ml-api
 spec:
   endpoints:

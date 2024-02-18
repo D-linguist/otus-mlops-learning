@@ -14,7 +14,7 @@ KEY_ID = getenv("AWS_ACCESS_KEY_ID")
 SECRET_KEY = getenv("AWS_SECRET_ACCESS_KEY")
 REGION = getenv('AWS_REGION')
 S3_URL = getenv('MLFLOW_S3_ENDPOINT_URL')
-ML_API_URL = getenv('ML_API_URL', 'localhost:8000')
+ML_API_URL = getenv('ML_API_URL', 'http://127.0.0.1:8000/predict')
 
 
 parquet = "s3a://object-storage-3/fraud_data_prep/part-00000-6ecb573f-949c-4160-9b5e-6f03226d372a-c000.snappy.parquet"
@@ -32,6 +32,7 @@ df = pd.read_parquet(
     }
 )
 
+df = df[df['tx_fraud'] == 1]
 
 for index, row in df.iterrows():
     columns = [
@@ -55,6 +56,8 @@ for index, row in df.iterrows():
         "tx_fraud",
     ]
     
+    row['ts'] = row['ts'].strftime('%Y-%m-%d %H:%M:%S')
+
     response = requests.post(
         url=ML_API_URL,
         json=row[columns].to_dict(),
